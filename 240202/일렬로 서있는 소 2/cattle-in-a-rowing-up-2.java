@@ -12,7 +12,7 @@ public class Main {
 		for(int i = 0; i < N -2; i++){
 			for(int j = i + 1; j < N - 1; j++){
 				for(int k = j + 1; k < N; k++){
-					if(AList[i] < AList[j] && AList[j] < AList[k]){
+					if(AList[i] <= AList[j] && AList[j] <= AList[k]){
 						cnt++;
 					}
 				}
