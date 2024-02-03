@@ -11,7 +11,7 @@ public class Main {
 			if(strList[i].equals("C")){
 				for(int j = i + 1; j < n - 1; j++){
 					if(strList[j].equals("O")){
-						for(int k = ㅓ + 1; k < n; k++){
+						for(int k = j + 1; k < n; k++){
 							if(strList[k].equals("W")){
 								cnt++;
 							}
