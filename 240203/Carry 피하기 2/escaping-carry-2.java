@@ -28,8 +28,12 @@ public class Main {
 				}
 			}
 		}
-
-		System.out.println(max);
+        
+        if(max == Integer.MIN_VALUE){
+			System.out.println(-1);
+		}else{
+			System.out.println(max);
+		}
 	}
 	private static int getDigit(int number, int n){
 		String input = String.valueOf(number);
