@@ -38,6 +38,7 @@ public class Main {
 				}
 			}
 		}
+        System.out.println(0);
 	}
 	private static boolean inRange(int x, int y){
 		if(x >= 19 || y >= 19){
