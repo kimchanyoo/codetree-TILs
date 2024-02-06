@@ -11,14 +11,24 @@ public class Main {
 			int num = sc.nextInt();
 			candyCount[sc.nextInt()] += num;
 		}
-
-		for(int i = 0; i <= 100 - 2 * k; i++){
-			int sum = 0;
-			for(int j = i; j <= i + 2 * k; j++){
-				sum += candyCount[j];
+		if(2 * k > 100){
+			for(int i = 0; i <= 100 - k; i++){
+				int sum = 0;
+				for(int j = i; j <= 100; j++){
+					sum += candyCount[j];
+				}
+				max = Math.max(max, sum);
 			}
-			max = Math.max(max, sum);
+		}else{
+			for(int i = 0; i <= 100 - 2 * k; i++){
+				int sum = 0;
+				for(int j = i; j <= i + 2 * k; j++){
+					sum += candyCount[j];
+				}
+				max = Math.max(max, sum);
+			}
 		}
+
 		System.out.println(max);
     }
 }
