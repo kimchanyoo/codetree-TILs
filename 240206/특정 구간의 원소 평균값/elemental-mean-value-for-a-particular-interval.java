@@ -21,8 +21,8 @@ public class Main {
 					sum += numList[k];
 				}
 				if(isFloat(sum, length)){
-					for(int k : numList){
-						if(sum / length == k){
+					for(int k = i; k <= j; k++){
+						if(sum / length == numList[k]){
 							cnt++;
 							break;
 						}
