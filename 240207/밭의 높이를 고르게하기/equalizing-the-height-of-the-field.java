@@ -17,6 +17,14 @@ public class Main {
 				sum += Math.abs(field[i] - h);
 			}
 			min = sum;
+		}else if(t > 10){
+			int sum = 0;
+			for(int i = 0; i <= n - 10; i++){
+				for(int j = i; j < i + 10; j++){
+					sum += Math.abs(field[j] - h);
+				}
+				min = Math.min(min, sum);
+			}
 		}else{
 			for(int i = 0; i <= n - t; i++){
 				int sum = 0;
@@ -26,7 +34,6 @@ public class Main {
 				min = Math.min(min, sum);
 			}
 		}
-
 		System.out.println(min);
     }
 }
