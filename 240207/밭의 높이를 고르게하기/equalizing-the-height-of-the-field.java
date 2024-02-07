@@ -11,13 +11,20 @@ public class Main {
 		for(int i = 0; i < n; i++){
 			field[i] = sc.nextInt();
 		}
-
-		for(int i = 0; i <= n - t; i++){
+        if(n == t){
 			int sum = 0;
-			for(int j = i; j < i + t; j++){
-				sum += Math.abs(field[j] - h);
+			for(int i = 0; i < n; i++){
+				sum += Math.abs(field[i] - h);
 			}
-			min = Math.min(min, sum);
+			min = sum;
+		}else{
+			for(int i = 0; i <= n - t; i++){
+				int sum = 0;
+				for(int j = i; j < i + t; j++){
+					sum += Math.abs(field[j] - h);
+				}
+				min = Math.min(min, sum);
+			}
 		}
 
 		System.out.println(min);
