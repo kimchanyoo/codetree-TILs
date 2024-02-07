@@ -3,8 +3,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int t = sc.nextInt();
 		int h = sc.nextInt();
+		int t = sc.nextInt();
 		int min = Integer.MAX_VALUE;
 		int[] field = new int[n];
 
