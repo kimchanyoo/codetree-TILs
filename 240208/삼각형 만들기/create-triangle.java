@@ -21,23 +21,11 @@ public class Main {
 					if((arr[i][0] == arr[j][0] && arr[j][0] == arr[k][0]) || arr[i][1] == arr[j][1] && arr[j][1] == arr[k][1]){
 						continue;
 					}
-					if(arr[i][0] == arr[j][0]){
-						y = Math.abs(arr[i][1] - arr[j][1]);
-					}else if(arr[j][0] == arr[k][0]){
-						y = Math.abs(arr[j][1] - arr[k][1]);
-					}else if(arr[i][0] == arr[k][0]){
-						y = Math.abs(arr[i][1] - arr[k][1]);
+					if((arr[i][0] == arr[j][0] || arr[j][0] == arr[k][0] || arr[i][0] == arr[k][0])
+							&& (arr[i][1] == arr[j][1] || arr[j][1] == arr[k][1] || arr[i][1] == arr[k][1])) {
+						sum = Math.abs((arr[i][0] * arr[j][1] + arr[j][0] * arr[k][1] + arr[k][0] * arr[i][1]) -
+								(arr[j][0] * arr[i][1] + arr[k][0] * arr[j][1] + arr[i][0] * arr[k][1]));
 					}
-
-					if(arr[i][1] == arr[j][1]){
-						x = Math.abs(arr[i][0] - arr[j][0]);
-					}else if(arr[j][1] == arr[k][1]){
-						x = Math.abs(arr[j][0] - arr[k][0]);
-					}else if(arr[i][1] == arr[k][1]){
-						x = Math.abs(arr[i][0] - arr[k][0]);
-					}
-
-					sum = x * y;
 					max = Math.max(max, sum);
 				}
 			}
