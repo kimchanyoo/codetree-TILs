@@ -16,16 +16,19 @@ public class Main {
 		}
 
 		Arrays.sort(arr, Comparator.comparingInt((int[] o) -> o[0]));
-		
+
 		for(int i = 0; i < n - 1; i++){
 			for(int j = i + 1; j < n; j++){
 				if(arr[j][0] >= arr[i][0] && arr[j][0] <= arr[i][1]){
 					if(arr[j][1] >= arr[i][0] && arr[j][1] <= arr[i][1]){
 						cnt = cnt - 2;
-						break;
 					}
 				}
 			}
+		}
+		
+		if(cnt < 0){
+			cnt = 0;
 		}
 
 		System.out.println(cnt);
