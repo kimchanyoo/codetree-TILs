@@ -16,19 +16,30 @@ public class Main {
 				for(int j = i + 1; j < n; j++){
 					if(bomb[i] == bomb[j]){
 						max = Math.max(max, bomb[i]);
+						break;
 					}
 				}
 			}
 		}else{
-			for(int i = 0; i < n - k; i++){
-				for(int j = i + 1; j <= i + k; j++){
-					if(bomb[i] == bomb[j]){
-						max = Math.max(max, bomb[i]);
+			for(int i = 0; i < n - 1; i++){
+				if(i <= (n - 1) - k){
+					for(int j = i + 1; j <= i + k; j++){
+						if(bomb[i] == bomb[j]){
+							max = Math.max(max, bomb[i]);
+							break;
+						}
+					}
+				}else{
+					for(int j = i + 1; j < n; j++){
+						if(bomb[i] == bomb[j]){
+							max = Math.max(max, bomb[i]);
+							break;
+						}
 					}
 				}
 			}
 		}
-		
+
 		System.out.println(max);
     }
 }
