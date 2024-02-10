@@ -17,7 +17,7 @@ public class Main {
         }
         
         if(n < 5){
-            System.out.println(1);
+            System.out.println(n * n * n);
         }else{
             int[] arr1FirstNumber = new int[5];
             int[] arr1SecondNumber = new int[5];
