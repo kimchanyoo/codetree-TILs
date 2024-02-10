@@ -7,13 +7,6 @@ public class Main {
         int n = sc.nextInt();
         int[] arr1 = new int[3];
         int[] arr2 = new int[3];
-        
-        int[] arr1FirstNumber = new int[5];
-        int[] arr1SecondNumber = new int[5];
-        int[] arr1ThirdNumber = new int[5];
-        int[] arr2FirstNumber = new int[5];
-        int[] arr2SecondNumber = new int[5];
-        int[] arr2ThirdNumber = new int[5];
 
         for(int i = 0; i < 3; i++){
             arr1[i] = sc.nextInt();
@@ -22,40 +15,51 @@ public class Main {
         for(int i = 0; i < 3; i++){
             arr2[i] = sc.nextInt();
         }
-
-        calculationOfScope(n, arr1, arr1FirstNumber, 0);
-        calculationOfScope(n, arr1, arr1SecondNumber, 1);
-        calculationOfScope(n, arr1, arr1ThirdNumber, 2);
-        calculationOfScope(n, arr2, arr2FirstNumber, 0);
-        calculationOfScope(n, arr2, arr2SecondNumber, 1);
-        calculationOfScope(n, arr2, arr2ThirdNumber, 2);
         
-        int cntFirst = 0;
-        int cntSecond = 0;
-        int cntThird = 0;
+        if(n < 5){
+            System.out.println(1);
+        }else{
+            int[] arr1FirstNumber = new int[5];
+            int[] arr1SecondNumber = new int[5];
+            int[] arr1ThirdNumber = new int[5];
+            int[] arr2FirstNumber = new int[5];
+            int[] arr2SecondNumber = new int[5];
+            int[] arr2ThirdNumber = new int[5];
 
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 5; j++) {
-                if (arr1FirstNumber[i] == arr2FirstNumber[j]) {
-                    cntFirst++;
-                    break;
+            calculationOfScope(n, arr1, arr1FirstNumber, 0);
+            calculationOfScope(n, arr1, arr1SecondNumber, 1);
+            calculationOfScope(n, arr1, arr1ThirdNumber, 2);
+            calculationOfScope(n, arr2, arr2FirstNumber, 0);
+            calculationOfScope(n, arr2, arr2SecondNumber, 1);
+            calculationOfScope(n, arr2, arr2ThirdNumber, 2);
+
+            int cntFirst = 0;
+            int cntSecond = 0;
+            int cntThird = 0;
+
+            for(int i = 0; i < 5; i++){
+                for(int j = 0; j < 5; j++) {
+                    if (arr1FirstNumber[i] == arr2FirstNumber[j]) {
+                        cntFirst++;
+                        break;
+                    }
+                }
+                for(int j = 0; j < 5; j++){
+                    if(arr1SecondNumber[i] == arr2SecondNumber[j]){
+                        cntSecond++;
+                        break;
+                    }
+                }
+                for(int j = 0; j < 5; j++){
+                    if(arr1ThirdNumber[i] == arr2ThirdNumber[j]){
+                        cntThird++;
+                        break;
+                    }
                 }
             }
-            for(int j = 0; j < 5; j++){
-                if(arr1SecondNumber[i] == arr2SecondNumber[j]){
-                    cntSecond++;
-                    break;
-                }
-            }
-            for(int j = 0; j < 5; j++){
-                if(arr1ThirdNumber[i] == arr2ThirdNumber[j]){
-                    cntThird++;
-                    break;
-                }
-            }
+            
+            System.out.println(250 - (cntFirst * cntSecond * cntThird));
         }
-
-        System.out.println(250 - (cntFirst * cntSecond * cntThird));
     }
 
     private static void calculationOfScope(int n, int[] arr, int[] numberRange, int sequence) {
