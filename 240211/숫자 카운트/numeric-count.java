@@ -7,7 +7,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int[][] question = new int[n][5];
-        Set<Integer> result = new HashSet<>();
+        int result = 0;
 
         for(int i =0; i < n; i++){
             int num = sc.nextInt();
@@ -56,12 +56,12 @@ public class Main {
                     }
 
                     if(cnt == n){
-                        result.add(100 * i + 10 * j + k);
+                        result++;
                     }
                 }
             }
         }
 
-        System.out.println(result.size());
+        System.out.println(result);
     }
 }
