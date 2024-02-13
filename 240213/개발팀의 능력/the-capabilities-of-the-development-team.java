@@ -37,7 +37,7 @@ public class Main {
 		int sum3 = total - (sum1 + sum2);
 
 		if(sum1 == sum2 && sum2 == sum3){
-			return Integer.MAX_VALUE;
+			return (int)Integer.MAX_VALUE;
 		}
 
 		int max = Math.max(Math.max(sum1, sum2), sum3);
