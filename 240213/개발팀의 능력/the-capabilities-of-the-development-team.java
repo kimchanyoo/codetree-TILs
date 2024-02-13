@@ -39,10 +39,9 @@ public class Main {
 			return Integer.MAX_VALUE;
 		}
 
-		int diff = Math.abs(sum1 - sum2);
-        diff = Math.max(diff,Math.abs(sum2 - sum3));
-        diff = Math.max(diff,Math.abs(sum1 - sum3));
-        
-        return diff;
+		int max = Math.max(Math.max(sum1, sum2), sum3);
+		int min = Math.min(Math.min(sum1, sum2), sum3);
+
+		return max - min;
 	}
 }
