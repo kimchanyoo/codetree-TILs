@@ -37,12 +37,13 @@ public class Main {
 		int sum3 = total - (sum1 + sum2);
 
 		if(sum1 == sum2 && sum2 == sum3){
-			return (int)Integer.MAX_VALUE;
+			return Integer.MAX_VALUE;
 		}
 
-		int max = Math.max(Math.max(sum1, sum2), sum3);
-		int min = Math.min(Math.min(sum1, sum2), sum3);
-
-		return max - min;
+		int diff = Math.abs(sum1 - sum2);
+        diff = Math.max(diff,Math.abs(sum2 - sum3));
+        diff = Math.max(diff,Math.abs(sum1 - sum3));
+        
+        return diff;
 	}
 }
