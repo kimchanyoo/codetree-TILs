@@ -11,8 +11,9 @@ public class Main {
 		int[][] eatCheese = new int[n][m];
 		int[] spoiled = new int[n];
 		int[] eatNumber = new int[m];
+		int[] spoiledPerson = new int[s];
 		int result = Integer.MIN_VALUE;
-		int count = 1;
+		int count = 0;
 
 		for(int i = 0; i < d; i++){
 			int x = sc.nextInt() - 1;
@@ -26,31 +27,38 @@ public class Main {
 		}
 
 		for(int i = 0; i < s; i++){
-			spoiled[sc.nextInt() - 1] = sc.nextInt();
+			int x = sc.nextInt() - 1;
+			spoiled[x] = sc.nextInt();
+			spoiledPerson[i] = x;
 		}
 
 		if(s == 0){
 			result = Arrays.stream(eatNumber).max().getAsInt();
 		}else{
 			for(int i = 0; i < spoiled.length; i++){
-				if(spoiled[i] == 0){
-					continue;
-				}else{
+				if(spoiled[i] != 0){
 					for(int j = 0; j < m; j++){
-						if(eatCheese[i][j] == 0){
-							continue;
-						}else{
+						if(eatCheese[i][j] != 0){
 							if(eatCheese[i][j] < spoiled[i]){
 								count = 1;
 								for(int k = 0; k < n; k++){
+									boolean isPresent = true;
 									if(k == i){
 										continue;
+									}
+									for(int l = 0; l < s; l++){
+										if(eatCheese[spoiledPerson[l]][j] == 0){
+											isPresent = false;
+											break;
+										}
+									}
+									if(!isPresent){
+										break;
 									}else{
-										if(eatCheese[k][j] != 0){
+										if(eatCheese[k][j] != 0) {
 											count++;
 										}
 									}
-
 								}
 
 								result = Math.max(result, count);
