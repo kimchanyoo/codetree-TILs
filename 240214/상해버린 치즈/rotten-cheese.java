@@ -1,56 +1,77 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int d = sc.nextInt();
+		int s = sc.nextInt();
+		int[][] eatCheese = new int[n][m];
+		int[] spoiled = new int[n];
+		int[] spoiledPerson = new int[s];
+		int result = Integer.MIN_VALUE;
+		int count;
 
-        int N = scanner.nextInt(); // 사람의 수
-        int M = scanner.nextInt(); // 치즈의 수
-        int D = scanner.nextInt(); // 치즈를 먹은 기록의 수
-        int S = scanner.nextInt(); // 아픈 기록의 수
+		for(int i = 0; i < d; i++){
+			int x = sc.nextInt() - 1;
+			int y = sc.nextInt() - 1;
+			if(eatCheese[x][y] == 0){
+				eatCheese[x][y] =  sc.nextInt();
+			}else{
+				eatCheese[x][y] = Math.min(eatCheese[x][y], sc.nextInt());
+			}
+		}
 
-        int[][] cheeseRecords = new int[N + 1][M + 1]; // 치즈를 먹은 사람과 시간에 대한 기록
-        int[] sicknessRecords = new int[N + 1]; // 아픈 사람과 시간에 대한 기록
+		for(int i = 0; i < s; i++){
+			int x = sc.nextInt() - 1;
+			spoiled[x] = sc.nextInt();
+			spoiledPerson[i] = x;
+		}
 
-        for (int i = 0; i < D; i++) {
-            int p = scanner.nextInt(); // 사람 번호
-            int m = scanner.nextInt(); // 치즈 번호
-            int t = scanner.nextInt(); // 시간
-            cheeseRecords[p][m] = t;
-        }
+		for(int i = 0; i < spoiled.length; i++){
+			if(spoiled[i] != 0){
+				for(int j = 0; j < m; j++){
+					if(eatCheese[i][j] != 0){
+						if(eatCheese[i][j] < spoiled[i]){
+							count = 0;
+							boolean isPresent = true;
 
-        for (int i = 0; i < S; i++) {
-            int p = scanner.nextInt(); // 사람 번호
-            int t = scanner.nextInt(); // 시간
-            sicknessRecords[p] = t;
-        }
+							for(int k = 0; k < n; k++) {
+								if (eatCheese[k][j] != 0) {
+									if(eatCheese[k][j] == 8 && k != i) {
+										isPresent = false;
+										break;
+									}else{
+										count++;
+									}
+								}
+							}
 
-        int medicineCount = countMedicine(N, M, D, S, cheeseRecords, sicknessRecords);
-        System.out.println(medicineCount);
-    }
+							if(isPresent) {
+								for(int l = 0; l < s; l++) {
+									if(spoiledPerson[l] == i) {
+										continue;
+									}
+									if(eatCheese[spoiledPerson[l]][j] == 0) {
+										isPresent = false;
+										break;
+									}
+								}
+							}
 
-    public static int countMedicine(int N, int M, int D, int S, int[][] cheeseRecords, int[] sicknessRecords) {
-        int medicineCount = 0;
+							if(!isPresent){
+								continue;
+							}
 
-        // 치즈를 먹은 사람들 중 아픈 사람이 아닌 경우 약이 필요함
-        for (int person = 1; person <= N; person++) {
-            if (sicknessRecords[person] == 0) {
-                medicineCount++;
-            }
-        }
+							result = Math.max(result, count);
+						}
+					}
+				}
+			}
+		}
 
-        // 상한 치즈를 먹은 사람들 중 약이 필요한 경우 약이 필요함
-        for (int person = 1; person <= N; person++) {
-            for (int cheese = 1; cheese <= M; cheese++) {
-                if (cheeseRecords[person][cheese] > sicknessRecords[person]) {
-                    medicineCount++;
-                    break;
-                }
-            }
-        }
 
-        return medicineCount;
+		System.out.println(result);
     }
 }
