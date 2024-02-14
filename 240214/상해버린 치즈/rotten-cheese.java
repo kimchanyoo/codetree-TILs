@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -31,36 +32,37 @@ public class Main {
 			spoiledPerson[i] = x;
 		}
 
-		for(int i = 0; i < spoiled.length; i++){
-			if(spoiled[i] != 0){
-				for(int j = 0; j < m; j++){
-					if(eatCheese[i][j] != 0){
-						if(eatCheese[i][j] < spoiled[i]){
-							count = 1;
-							boolean isPresent = true;
-							for(int l = 0; l < s; l++){
-								if(spoiledPerson[l] == i + 1){
-									continue;
+		if(s == 0){
+			result = Arrays.stream(eatNumber).max().getAsInt();
+		}else{
+			for(int i = 0; i < spoiled.length; i++){
+				if(spoiled[i] != 0){
+					for(int j = 0; j < m; j++){
+						if(eatCheese[i][j] != 0){
+							if(eatCheese[i][j] < spoiled[i]){
+								count = 1;
+								for(int k = 0; k < n; k++){
+									boolean isPresent = true;
+									if(k == i){
+										continue;
+									}
+									for(int l = 0; l < s; l++){
+										if(eatCheese[spoiledPerson[l]][j] == 0){
+											isPresent = false;
+											break;
+										}
+									}
+									if(!isPresent){
+										break;
+									}else{
+										if(eatCheese[k][j] != 0) {
+											count++;
+										}
+									}
 								}
-								if(eatCheese[spoiledPerson[l]][j] == 0){
-									isPresent = false;
-									break;
-								}
-							}
-							if(!isPresent){
-								break;
-							}
 
-							for(int k = 0; k < n; k++){
-								if(k == i){
-									continue;
-								}
-								if(eatCheese[k][j] != 0) {
-									count++;
-								}
+								result = Math.max(result, count);
 							}
-
-							result = Math.max(result, count);
 						}
 					}
 				}
