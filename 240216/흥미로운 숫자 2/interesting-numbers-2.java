@@ -10,22 +10,24 @@ public class Main {
 		int count = 0;
 
 		for(int i = x; i < y + 1; i++){
-			String str = String.valueOf(i);
-			String[] strList = str.split("");
-			int[] numbers = new int[10];
+			int num = i;
+			int[] digit = new int[10];
+			int allDigits = 0;
+			while(num > 0) {
+				digit[num % 10]++;
+				allDigits++;
+				num /= 10;
+			}
 			boolean isInteresting = true;
 
-			for (String s : strList) {
-				numbers[Integer.parseInt(s)] += 1;
-			}
 
-			int[] sortedArray = IntStream.of(numbers)
+			int[] sortedArray = IntStream.of(digit)
 					.boxed()
 					.sorted(Comparator.reverseOrder())
 					.mapToInt(Integer::intValue)
 					.toArray();
 
-			if(strList.length - sortedArray[0] != 1){
+			if(allDigits - sortedArray[0] != 1){
 				isInteresting = false;
 			}
 
