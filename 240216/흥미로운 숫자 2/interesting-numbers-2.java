@@ -1,6 +1,4 @@
-import java.util.Comparator;
 import java.util.Scanner;
-import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,15 +17,13 @@ public class Main {
 				num /= 10;
 			}
 			boolean isInteresting = true;
+			int max = 0;
 
+			for(int j : digit){
+				max = Math.max(max, j);
+			}
 
-			int[] sortedArray = IntStream.of(digit)
-					.boxed()
-					.sorted(Comparator.reverseOrder())
-					.mapToInt(Integer::intValue)
-					.toArray();
-
-			if(allDigits - sortedArray[0] != 1){
+			if(allDigits - max != 1){
 				isInteresting = false;
 			}
 
