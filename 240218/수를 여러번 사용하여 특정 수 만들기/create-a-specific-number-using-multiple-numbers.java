@@ -6,13 +6,13 @@ public class Main {
 		int a = sc.nextInt();
 		int b = sc.nextInt();
 		int c = sc.nextInt();
-		int previous = (c - b) / a;
-		int after = (c - a) / b;
-		
+		int previous = c / a;
+		int after = c / b;
+
 		int max = -1;
 
-		for(int i = 1; i <= previous; i++){
-			for(int j = 1; j <= after; j++){
+		for(int i = 0; i <= previous; i++){
+			for(int j = 0; j <= after; j++){
 				int sum = a * i + b * j;
 				if(sum <= c){
 					max = Math.max(max, sum);
