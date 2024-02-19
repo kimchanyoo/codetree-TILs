@@ -1,12 +1,14 @@
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
 import java.util.Set;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args){
+		Scanner sc = new Scanner(System.in);
 		String[][] game = new String[3][3];
-		int count = 0;
+		Set<String> result = new HashSet<>();
+		Set<String> line = new HashSet<>();
 
 		for(int i = 0; i < 3; i++){
 			String num = sc.next();
@@ -14,43 +16,48 @@ public class Main {
 		}
 
 		for(int i = 0; i < 3; i++){
-			Set<String> width = new HashSet<>();
-			width.add(game[i][0]);
-			width.add(game[i][1]);
-			width.add(game[i][2]);
-
-			if(width.size() == 2){
-				count++;
-			}
+			line = new HashSet<>();
+			line.add(game[i][0]);
+			line.add(game[i][1]);
+			line.add(game[i][2]);
+			calculation(line, result);
 		}
 
 		for(int i = 0; i < 3; i++){
-			Set<String> height = new HashSet<>();
-			height.add(game[0][i]);
-			height.add(game[1][i]);
-			height.add(game[2][i]);
-
-			if(height.size() == 2){
-				count++;
-			}
+			line = new HashSet<>();
+			line.add(game[0][i]);
+			line.add(game[1][i]);
+			line.add(game[2][i]);
+			calculation(line, result);
 		}
 
 		for(int i = 0; i < 3; i += 2){
-			Set<String> diagonal = new HashSet<>();
+			line = new HashSet<>();
 			if(i == 0){
-				diagonal.add(game[0][0]);
-				diagonal.add(game[1][1]);
-				diagonal.add(game[2][2]);
+				line.add(game[0][0]);
+				line.add(game[1][1]);
+				line.add(game[2][2]);
 			}else{
-				diagonal.add(game[0][2]);
-				diagonal.add(game[1][1]);
-				diagonal.add(game[2][0]);
+				line.add(game[0][2]);
+				line.add(game[1][1]);
+				line.add(game[2][0]);
 			}
-			if(diagonal.size() == 2){
-				count++;
-			}
+			calculation(line, result);
 		}
 
-		System.out.println(count);
-    }
+		System.out.println(result.size());
+	}
+
+	private static void calculation(Set<String> line, Set<String> result) {
+		Iterator<String> it = line.iterator();
+
+		if(line.size() == 2){
+			StringBuilder temp = new StringBuilder();
+			while(it.hasNext()){
+				temp.append(it.next());
+			}
+
+			result.add(temp.toString());
+		}
+	}
 }
