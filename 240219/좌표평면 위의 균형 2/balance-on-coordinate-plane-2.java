@@ -17,24 +17,24 @@ public class Main {
 			maxValueY = Math.max(maxValueY, y[i]);
 		}
 
-		for(int i = 1; i < maxValueX; i++){
-			for(int j = 1; j < maxValueY; j++){
-				int count1 = 0;
-				int count2 = 0;
-				int count3 = 0;
-				int count4 = 0;
+		for(int i = 2; i <= 100; i += 2){
+			for(int j = 2; j <= 100; j += 2){
+				int cnt1 = 0;
+				int cnt2 = 0;
+				int cnt3 = 0;
+				int cnt4 = 0;
 				for(int k = 0; k < n; k++){
-					if(x[k] > i && y[k] > j){
-						count1++;
-					}else if(x[k] < i && y[k] > j){
-						count2++;
-					}else if(x[k] < i && y[k] < j){
-						count3++;
+					if(x[k] > j && y[k] > i){
+						cnt1++;
+					}else if(x[k] > j && y[k] < i){
+						cnt2++;
+					}else if(x[k] < j && y[k] < i){
+						cnt3++;
 					}else{
-						count4++;
+						cnt4++;
 					}
 				}
-				int maxCount = Math.max(Math.max(count1, count2), Math.max(count3, count4));
+				int maxCount = Math.max(cnt1, Math.max(cnt2, Math.max(cnt3, cnt4)));
 				min = Math.min(min, maxCount);
 			}
 		}
