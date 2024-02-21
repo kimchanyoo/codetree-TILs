@@ -11,7 +11,7 @@ public class Main {
 		int count;
 
 		if(m1 == m2 && d1 == d2){
-			count = 0;
+			count = 1;
 		}else if(m1 == m2){
 			count = d2 - d1 + 1;
 		}else{
