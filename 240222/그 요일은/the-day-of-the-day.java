@@ -22,7 +22,7 @@ public class Main {
 		elapsedDays += d2;
 
 		count = elapsedDays / 7;
-		if(a.equals(day[elapsedDays % 7])){
+		if(a.equals(day[elapsedDays % 7]) && !a.equals("Mon")){
 			count++;
 		}
 
