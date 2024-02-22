@@ -13,17 +13,25 @@ public class Main {
 		String[] day = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 		int elapsedDays = 0;
 		int count = 0;
+		
+		if(m1 < m2){
+			for(int i = m1; i < m2; i++){
+				elapsedDays += monthDays[i];
+			}
 
-		for(int i = m1; i < m2; i++){
-			elapsedDays += monthDays[i];
-		}
+			elapsedDays -= d1;
+			elapsedDays += d2;
 
-		elapsedDays -= d1;
-		elapsedDays += d2;
-
-		count = elapsedDays / 7;
-		if(a.equals(day[elapsedDays % 7]) && !a.equals("Mon")){
-			count++;
+			count = elapsedDays / 7;
+			if(a.equals(day[elapsedDays % 7]) && !a.equals("Mon")){
+				count++;
+			}
+		}else{
+			elapsedDays = d2 - d1;
+			count = elapsedDays / 7;
+			if(a.equals(day[elapsedDays % 7]) && !a.equals("Mon")){
+				count++;
+			}
 		}
 
 		System.out.println(count);
