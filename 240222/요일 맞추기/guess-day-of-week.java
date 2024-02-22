@@ -36,7 +36,7 @@ public class Main {
 			elapsedDays = elapsedDays % 7;
 			result = Reverseday[elapsedDays];
 		}else{
-			elapsedDays = (d1 > d2)?(d2 - d1):(d1 - d2);
+			elapsedDays = d2 - d1;
 			if(elapsedDays < 0){
 				elapsedDays = Math.abs(elapsedDays) % 7;
 				result = Reverseday[elapsedDays];
