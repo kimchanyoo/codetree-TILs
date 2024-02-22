@@ -2,38 +2,44 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-		int m1 = sc.nextInt();
-		int d1 = sc.nextInt();
-		int m2 = sc.nextInt();
-		int d2 = sc.nextInt();
-		String a = sc.next();
+		int[] MONTHS = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		String[] WEEKEND = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
 
-		int[] monthDays = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		String[] day = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
-		int elapsedDays = 0;
-		int count = 0;
-		
-		if(m1 < m2){
-			for(int i = m1; i < m2; i++){
-				elapsedDays += monthDays[i];
+		Scanner scanner = new Scanner(System.in);
+		String[] input = scanner.nextLine().split(" ");
+		int m1 = Integer.parseInt(input[0]);
+		int d1 = Integer.parseInt(input[1]);
+		int m2 = Integer.parseInt(input[2]);
+		int d2 = Integer.parseInt(input[3]);
+		String week = scanner.nextLine();
+
+		int days = m1 != m2 ? MONTHS[m1] - d1 + 1 + sumArray(MONTHS, m1 + 1, m2 - 1) + d2 : d2 - d1 + 1;
+
+		if (getIndex(WEEKEND, week) + 1 <= (days % 7) && days > 7) {
+			System.out.println(days / 7 + 1);
+		} else if (days < 7) {
+			if (getIndex(WEEKEND, week) + 1 <= (days % 7)) {
+				System.out.println(1);
 			}
+		} else {
+			System.out.println(days / 7);
+		}
+	}
 
-			elapsedDays -= d1;
-			elapsedDays += d2;
+	public static int sumArray(int[] arr, int start, int end) {
+		int sum = 0;
+		for (int i = start; i <= end; i++) {
+			sum += arr[i];
+		}
+		return sum;
+	}
 
-			count = elapsedDays / 7;
-			if(a.equals(day[elapsedDays % 7]) && !a.equals("Mon")){
-				count++;
-			}
-		}else{
-			elapsedDays = d2 - d1;
-			count = elapsedDays / 7;
-			if(a.equals(day[elapsedDays % 7]) && !a.equals("Mon")){
-				count++;
+	public static int getIndex(String[] arr, String value) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i].equals(value)) {
+				return i;
 			}
 		}
-
-		System.out.println(count);
-    }
+		return -1;
+	}
 }
