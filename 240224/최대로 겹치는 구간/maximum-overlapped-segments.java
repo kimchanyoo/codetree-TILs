@@ -14,7 +14,7 @@ public class Main {
 		}
 
 		for(int i = 0; i < n; i++){
-			for(int j = x1[i]; j <= x2[i]; j++){
+			for(int j = x1[i]; j < x2[i]; j++){
 				line[j + 100]++;
 			}
 		}
@@ -23,6 +23,6 @@ public class Main {
 			max = Math.max(max, j);
 		}
 
-		System.out.println(max - 1);
+		System.out.println(max);
     }
 }
