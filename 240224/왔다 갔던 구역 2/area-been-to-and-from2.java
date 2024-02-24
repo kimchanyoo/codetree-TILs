@@ -17,12 +17,12 @@ public class Main {
 
 		for(int i = 0; i < n; i++){
 			if(direction[i].equals("L")){
-				for(int j = location; j >= location - x[i]; j--){
+				for(int j = location; j > location - x[i]; j--){
 					line[j]++;
 				}
 				location = location - x[i];
 			}else if(direction[i].equals("R")){
-				for(int j = location; j <= location + x[i]; j++){
+				for(int j = location; j < location + x[i]; j++){
 					line[j]++;
 				}
 				location = location + x[i];
