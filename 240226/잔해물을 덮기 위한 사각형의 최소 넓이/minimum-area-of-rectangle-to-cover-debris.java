@@ -5,9 +5,9 @@ public class Main {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int[][] area = new int[2001][2001];
-		int minX = Integer.MAX_VALUE;
+		int minX = 2001;
 		int maxX = -1;
-		int minY = Integer.MAX_VALUE;
+		int minY = 2001;
 		int maxY = -1;
 
 		for(int i = 0; i < 2; i++){
@@ -41,7 +41,11 @@ public class Main {
 				}
 			}
 		}
-
-		System.out.println((maxX - minX + 1) * (maxY - minY + 1));
+		
+		if(minX - maxX == 2002){
+			System.out.println(0);
+		}else{
+			System.out.println((maxX - minX + 1) * (maxY - minY + 1));
+		}
     }
 }
