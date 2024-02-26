@@ -22,8 +22,8 @@ public class Main {
 					}
 				}
 			}else{
-				for(int j = y1; j <= y2; j++){
-					for(int k = x1; k <= x2; k++){
+				for(int j = y1; j < y2; j++){
+					for(int k = x1; k < x2; k++){
 						area[j][k]++;
 					}
 				}
@@ -42,6 +42,6 @@ public class Main {
 			}
 		}
 
-		System.out.println((maxX - minX) * (maxY - minY));
+		System.out.println((maxX - minX + 1) * (maxY - minY + 1));
     }
 }
