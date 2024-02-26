@@ -16,8 +16,8 @@ public class Main {
 			int x2 = sc.nextInt() + OFFSET;
 			int y2 = sc.nextInt() + OFFSET;
 			if(i == 1){
-				for(int j = y1; j <= y2; j++){
-					for(int k = x1; k <= x2; k++){
+				for(int j = y1; j < y2; j++){
+					for(int k = x1; k < x2; k++){
 						area[j][k] += 2;
 					}
 				}
