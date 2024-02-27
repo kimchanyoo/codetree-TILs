@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     static final int OFFSET = 100000;
 	public static void main(String[] args){
