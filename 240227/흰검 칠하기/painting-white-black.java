@@ -57,7 +57,8 @@ public class Main {
 
 		for(int i = 0; i < countList.length; i++){
 			if(countList[i] >= 4){
-				if(blackList[i] == 3 || whiteList[i] == 3){
+				if((blackList[i] == 3 && whiteList[i] == 1) ||
+						(whiteList[i] == 3 && blackList[i] == 1)){
 					continue;
 				}
 				if(area[i] == 1){
