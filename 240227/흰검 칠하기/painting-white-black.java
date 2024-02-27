@@ -5,7 +5,6 @@ public class Main {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		int[] countList = new int[2 * OFFSET + 1];
 		int[] area = new int[2 * OFFSET + 1];
 		int[] blackList = new int[2 * OFFSET + 1];
 		int[] whiteList = new int[2 * OFFSET + 1];
@@ -25,13 +24,11 @@ public class Main {
 						black++;
 					}else if(area[j] == 100){
 						blackList[j]++;
-						countList[j]++;
 						continue;
 					}else{
 						black++;
 					}
 					area[j] = 100;
-					countList[j]++;
 					blackList[j]++;
 				}
 				start += (distance - 1);
@@ -42,25 +39,19 @@ public class Main {
 						white++;
 					}else if(area[j] == 1){
 						whiteList[j]++;
-						countList[j]++;
 						continue;
 					}else{
 						white++;
 					}
 					area[j] = 1;
-					countList[j]++;
 					whiteList[j]++;
 				}
 				start -= (distance - 1);
 			}
 		}
 
-		for(int i = 0; i < countList.length; i++){
-			if(countList[i] >= 4){
-				if((blackList[i] == 3 && whiteList[i] == 1) ||
-						(whiteList[i] == 3 && blackList[i] == 1)){
-					continue;
-				}
+		for(int i = 0; i < area.length; i++){
+			if(blackList[i] >= 2 && whiteList[i] >= 2){
 				if(area[i] == 1){
 					white--;
 					gray++;
