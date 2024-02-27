@@ -7,6 +7,8 @@ public class Main {
 		int n = sc.nextInt();
 		int[] countList = new int[2 * OFFSET + 1];
 		int[] area = new int[2 * OFFSET + 1];
+		int[] blackList = new int[2 * OFFSET + 1];
+		int[] whiteList = new int[2 * OFFSET + 1];
 		int start = 100000;
 		int white = 0;
 		int black = 0;
@@ -22,6 +24,7 @@ public class Main {
 						white--;
 						black++;
 					}else if(area[j] == 100){
+						blackList[j]++;
 						countList[j]++;
 						continue;
 					}else{
@@ -29,6 +32,7 @@ public class Main {
 					}
 					area[j] = 100;
 					countList[j]++;
+					blackList[j]++;
 				}
 				start += (distance - 1);
 			}else{
@@ -37,6 +41,7 @@ public class Main {
 						black--;
 						white++;
 					}else if(area[j] == 1){
+						whiteList[j]++;
 						countList[j]++;
 						continue;
 					}else{
@@ -44,6 +49,7 @@ public class Main {
 					}
 					area[j] = 1;
 					countList[j]++;
+					whiteList[j]++;
 				}
 				start -= (distance - 1);
 			}
@@ -51,6 +57,9 @@ public class Main {
 
 		for(int i = 0; i < countList.length; i++){
 			if(countList[i] >= 4){
+				if(blackList[i] == 3 || whiteList[i] == 3){
+					continue;
+				}
 				if(area[i] == 1){
 					white--;
 					gray++;
