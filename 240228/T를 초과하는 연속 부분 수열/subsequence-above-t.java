@@ -14,10 +14,10 @@ public class Main {
 		}
 
 		for(int i = 0; i < n; i++){
-			if(i >= 1 && numList[i] > t && numList[i] > numList[i - 1]){
+			if(i >= 1 && numList[i] > t && numList[i] >= numList[i - 1]){
 				count++;
 			}else{
-				count = 1;
+				count = 0;
 			}
 			max = Math.max(max, count);
 		}
