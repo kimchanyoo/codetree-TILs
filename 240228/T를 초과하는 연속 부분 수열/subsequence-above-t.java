@@ -14,7 +14,7 @@ public class Main {
 		}
 
 		for(int i = 0; i < n; i++){
-			if(i >= 1 && numList[i] > t){
+			if(numList[i] > t){
 				count++;
 			}else{
 				count = 0;
