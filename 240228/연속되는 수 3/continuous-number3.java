@@ -13,6 +13,10 @@ public class Main {
 		}
 
 		for(int i = 0; i < n; i++){
+            /*
+            이런 방식도 사용 가능
+            if(i >= 1 && arr[i] * arr[i - 1] > 0)
+            */
 			if((i >= 1) && ((numList[i] > 0 && numList[i - 1] > 0)
 					|| (numList[i] < 0 && numList[i - 1] < 0))){
 				count++;
