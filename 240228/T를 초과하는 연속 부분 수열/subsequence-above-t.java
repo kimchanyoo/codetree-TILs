@@ -17,7 +17,7 @@ public class Main {
 			if(i >= 1 && numList[i] > t && numList[i] > numList[i - 1]){
 				count++;
 			}else{
-				count = 0;
+				count = 1;
 			}
 			max = Math.max(max, count);
 		}
