@@ -15,12 +15,14 @@ public class Main {
 			}else{
 				if(temp == num){
 					count++;
+					max = Math.max(max, count);
+				}else{
+					count = 1;
 				}
 			}
-			max = Math.max(max, count);
 			temp = num;
 		}
-		
+
 		System.out.println(max);
     }
 }
