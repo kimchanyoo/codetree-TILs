@@ -12,18 +12,20 @@ public class Main {
 
 		for (String s : strList) {
 			switch (s) {
-				case "L" -> {
+				case "L":
 					if (dirNum == 0) {
 						dirNum = 3;
 					} else {
 						dirNum--;
 					}
-				}
-				case "R" -> dirNum = (dirNum + 1) % 4;
-				case "F" -> {
+					break;
+				case "R":
+					dirNum = (dirNum + 1) % 4;
+					break;
+				case "F":
 					nx += dx[dirNum];
 					ny += dy[dirNum];
-				}
+					break;
 			}
 		}
 
