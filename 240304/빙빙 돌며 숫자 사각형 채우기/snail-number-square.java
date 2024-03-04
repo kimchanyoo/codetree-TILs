@@ -15,7 +15,7 @@ public class Main {
 		for(int i = 1; i < n * m; i++){
 			int nx = x + dx[dirNum];
 			int ny = y + dy[dirNum];
-			if(!isRange(nx, ny, n, m)){
+			if((!isRange(nx, ny, n, m)) || (area[ny][nx] != 0)){
 				dirNum++;
 				if(dirNum > 3){
 					dirNum = 0;
@@ -24,19 +24,9 @@ public class Main {
 				y += dy[dirNum];
 				area[y][x] = i + 1;
 			}else{
-				if(area[ny][nx] != 0){
-					dirNum++;
-					if(dirNum > 3){
-						dirNum = 0;
-					}
-					x += dx[dirNum];
-					y += dy[dirNum];
-					area[y][x] = i + 1;
-				}else{
 					area[ny][nx] = i + 1;
 					x = nx;
 					y = ny;
-				}
 			}
 		}
 
