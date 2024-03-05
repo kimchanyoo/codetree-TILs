@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     static int[] dx = new int[]{0, 1, 0, -1};
 	static int[] dy = new int[]{-1, 0, 1, 0};
