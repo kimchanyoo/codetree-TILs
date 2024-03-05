@@ -22,7 +22,7 @@ public class Main {
 					count++;
 				}
 			}
-			System.out.println(i + "번쨰의 count 갯수 : " + count);
+			
 			if(count == 3){
 				System.out.println(1);
 			}else{
