@@ -45,9 +45,10 @@ public class Main {
 	}
 	private static void dirNumsSet(String[][] grid, int x, int y){
 		if(grid[y][x].equals("/")){
-			dirNums++;
-			if(dirNums > 3){
-				dirNums = 0;
+			if(dirNums == 0 || dirNums == 1){
+				dirNums = 1 - dirNums;
+			}else if(dirNums == 2 || dirNums == 3){
+				dirNums = 5 - dirNums;
 			}
 		}else if(grid[y][x].equals("\\")){
 			dirNums = 3 - dirNums;
