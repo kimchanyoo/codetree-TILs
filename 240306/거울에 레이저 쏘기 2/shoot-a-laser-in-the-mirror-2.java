@@ -13,22 +13,21 @@ public class Main {
 		}
 		int k = sc.nextInt();
 		dirNums = (k - 1) / n;
-		int location = k - (n * dirNums) - 1;
 		int x = 0, y = 0;
 		int count = 0;
 
 		if(dirNums == 0){
-			x = location;
+			x = k - 1;
 			y = 0;
 		}else if(dirNums == 1){
 			x = n - 1;
-			y = location;
+			y = k - n - 1;
 		}else if(dirNums == 2){
-			x = location;
+			x = 3 * n - k;
 			y = n - 1;
 		}else if(dirNums == 3){
 			x = 0;
-			y = n - location - 1;
+			y = 4 * n - k;
 		}
 
 		while(isRange(x, y, n)){
