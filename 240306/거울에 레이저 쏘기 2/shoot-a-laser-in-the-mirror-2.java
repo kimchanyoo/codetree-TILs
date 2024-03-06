@@ -7,9 +7,9 @@ public class Main {
 	public static void main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		int n = sc.nextInt();
-		String[][] grid = new String[n][n];
+		char[][] grid = new char[n][n];
 		for(int i = 0; i < n; i++){
-			grid[i] = sc.next().split("");
+			grid[i] = sc.next().toCharArray();
 		}
 		int k = sc.nextInt();
 		dirNums = (k - 1) / n;
@@ -42,14 +42,14 @@ public class Main {
 	private static boolean isRange(int x, int y, int n){
 		return 0 <= x && x < n && 0 <= y && y < n;
 	}
-	private static void dirNumsSet(String[][] grid, int x, int y){
-		if(grid[y][x].equals("/")){
+	private static void dirNumsSet(char[][] grid, int x, int y){
+		if(grid[y][x] == '/'){
 			if(dirNums == 0 || dirNums == 1){
 				dirNums = 1 - dirNums;
 			}else if(dirNums == 2 || dirNums == 3){
 				dirNums = 5 - dirNums;
 			}
-		}else if(grid[y][x].equals("\\")){
+		}else if(grid[y][x] == '\\'){
 			dirNums = 3 - dirNums;
 		}
 	}
