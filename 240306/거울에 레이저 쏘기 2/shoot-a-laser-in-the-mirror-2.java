@@ -15,8 +15,8 @@ public class Main {
 		dirNums = (k - 1) / n;
 		int location = k - (n * dirNums) - 1;
 		int x = 0, y = 0;
-		int count = 1;
-		
+		int count = 0;
+
 		if(dirNums == 0){
 			x = location;
 			y = 0;
@@ -32,7 +32,7 @@ public class Main {
 		}
 
 		while(isRange(x, y, n)){
-            count++;
+			count++;
 			dirNumsSet(grid, x, y);
 			x += dx[dirNums];
 			y += dy[dirNums];
@@ -50,10 +50,7 @@ public class Main {
 				dirNums = 0;
 			}
 		}else if(grid[y][x].equals("\\")){
-			dirNums--;
-			if(dirNums < 0){
-				dirNums = 3;
-			}
+			dirNums = 3 - dirNums;
 		}
 	}
 }
