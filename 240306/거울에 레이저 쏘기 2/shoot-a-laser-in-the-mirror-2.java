@@ -12,6 +12,7 @@ public class Main {
 			grid[i] = sc.next().split("");
 		}
 		int k = sc.nextInt();
+		dirNums = (k - 1) / n;
 		int location = k - (n * dirNums) - 1;
 		int x = 0, y = 0;
 		int count = 0;
