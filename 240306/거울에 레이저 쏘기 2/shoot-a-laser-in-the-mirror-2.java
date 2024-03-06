@@ -28,7 +28,7 @@ public class Main {
 			y = n - 1;
 		}else if(dirNums == 3){
 			x = 0;
-			y = location;
+			y = n - location - 1;
 		}
 
 		while(isRange(x, y, n)){
