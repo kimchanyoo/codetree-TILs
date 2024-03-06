@@ -12,22 +12,22 @@ public class Main {
 			grid[i] = sc.next().split("");
 		}
 		int k = sc.nextInt();
-		dirNums = (k - 1) / n;
+		int location = k - (n * dirNums) - 1;
 		int x = 0, y = 0;
 		int count = 0;
 
 		if(dirNums == 0){
-			x = k - 1;
+			x = location;
 			y = 0;
 		}else if(dirNums == 1){
 			x = n - 1;
-			y = k - n - 1;
+			y = location;
 		}else if(dirNums == 2){
-			x = 3 * n - k;
+			x = location;
 			y = n - 1;
 		}else if(dirNums == 3){
 			x = 0;
-			y = k * n - k;
+			y = n - location - 1;
 		}
 
 		while(isRange(x, y, n)){
