@@ -32,10 +32,10 @@ public class Main {
 		}
 
 		while(isRange(x, y, n)){
+            count++;
 			dirNumsSet(grid, x, y);
 			x += dx[dirNums];
 			y += dy[dirNums];
-			count++;
 		}
 
 		System.out.println(count);
