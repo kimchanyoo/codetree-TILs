@@ -21,6 +21,8 @@ public class Main {
 			}else{
 				overlapping = d - a;
 			}
+		}else if(a == c && b == d){
+			overlapping = b - a;
 		}
 
 		System.out.println((b - a) + (d - c) - (overlapping));
