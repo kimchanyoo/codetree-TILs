@@ -23,7 +23,7 @@ public class Main {
 			}else if(a < b && !rank.equals("B")){
 				rank = "B";
 				count++;
-			}else if(a == b && !rank.equals("AB")){
+			}else if(a == b && !rank.equals("AB") && a != 0){
 				rank = "AB";
 				count++;
 			}
