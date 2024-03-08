@@ -6,7 +6,7 @@ public class Main {
 		int n = sc.nextInt();
 		int a = 0;
 		int b = 0;
-		String rank = "";
+		String rank = "AB";
 		int count = 0;
 
 		for(int i = 0; i < n; i++){
@@ -23,7 +23,7 @@ public class Main {
 			}else if(a < b && !rank.equals("B")){
 				rank = "B";
 				count++;
-			}else if(a == b && !rank.equals("AB") && a != 0){
+			}else if(a == b && !rank.equals("AB")){
 				rank = "AB";
 				count++;
 			}
