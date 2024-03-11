@@ -11,10 +11,10 @@ public class Main {
 		}
 		Arrays.sort(arr);
 
-		if(arr[1] - arr[0] == 1){
-			System.out.println(arr[2] - arr[1] - 1);
-		}else{
+		if(arr[1] - arr[0] >= arr[2] - arr[1]){
 			System.out.println(arr[1] - arr[0] - 1);
+		}else{
+			System.out.println(arr[2] - arr[1] - 1);
 		}
     }
 }
