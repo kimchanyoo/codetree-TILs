@@ -29,8 +29,10 @@ public class Main {
 			}
 		}
 
-		if((bHeight == rHeight && lHeight == rHeight) ||
-				(bWidth == rWidth && lWidth == rWidth)){
+		if((bHeight == rHeight && lHeight == rHeight &&
+				Math.min(bWidth, lWidth) < rWidth && Math.max(bWidth, lWidth) > rWidth) ||
+				(bWidth == rWidth && lWidth == rWidth) &&
+						Math.min(bHeight, lHeight) < rHeight && Math.max(bHeight, lHeight) > rHeight){
 			System.out.println(Math.abs(bHeight - lHeight) +
 					Math.abs(bWidth - lWidth) + 1);
 		}else{
