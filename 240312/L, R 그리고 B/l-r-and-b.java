@@ -29,6 +29,13 @@ public class Main {
 			}
 		}
 
-		System.out.println(Math.abs(bHeight - lHeight) + Math.abs(bWidth - lWidth) - 1);
+		if((bHeight == rHeight && lHeight == rHeight) ||
+				(bWidth == rWidth && lWidth == rWidth)){
+			System.out.println(Math.abs(bHeight - lHeight) +
+					Math.abs(bWidth - lWidth) + 1);
+		}else{
+			System.out.println(Math.abs(bHeight - lHeight) +
+					Math.abs(bWidth - lWidth) - 1);
+		}
     }
 }
